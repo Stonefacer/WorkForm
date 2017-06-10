@@ -1,0 +1,21 @@
+﻿
+#selected-students{
+    display: none;
+}
+
+#selected-students-visual .label{
+    margin: 10px;
+}
+
+.remove{
+    top: 1.5px !important;
+    cursor: pointer;
+}
+
+.remove:before{
+    margin-left: 10px;
+}
+
+.label{
+    display: inline-table;
+}

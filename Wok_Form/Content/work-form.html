@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <link type="text/css" rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="/Content/Site.css" />
+    <!-- <ADDED> -->
+    <link type="text/css" rel="stylesheet" href="/Content/jquery-ui.min.css" />
+    <!-- </ADDED> -->
+    <style type="text/css">
+        .multiselect-container > li > a {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!-- /#wrapper -->
+
+        <div></div>
+        <div></div>
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Новая работа</h1>
+                    <!-- <div class="col-sm-2"></div> -->
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                        <!-- Add work form -->
+                        <form action="/Home/SubmitForm" class="form" id="workForm" name="workForm" method="post" action="#" enctype="multipart/form-data"
+                              data-autocomlete-url="/Home/GetList"
+                              data-autocomlete-input-id="student"
+                              data-autocomlete-minimal-length="2">
+                            <input type="hidden" name="Id" />
+                            <div class="form-group required">
+                                <label class="control-label" for="title">Название*</label>
+                                <input class="form-control" type="text" id="title" />
+                                <!-- required="required"  -->
+                                <span class="help-block">Incorrect</span>
+                            </div>
+                            <div class="form-group required">
+                                <label class="control-label" for="author">Автор(ы)</label>
+                                <input class="form-control" type="text" id="author" />
+                                <span class="help-block">Incorrect</span>
+                            </div>
+                            <!-- <ADDED> -->
+                            <div class="form-group ui-widget">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5">
+                                        <label class="control-label" for="student">Студент</label>
+                                        <input class="form-control" id="student" />
+                                    </div>
+                                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5">
+                                        <label class="control-label" for="group">Группа</label>
+                                        <input class="form-control" id="group" />
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                        <label class="control-label" for="add-student">&nbsp;</label>
+                                        <input class="form-control" type="button" id="add-student" value="+" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="selected-students-visual" class="form-group"></div>
+                            <select name="students" multiple id="selected-students">
+                                <option selected="" value="{&quot;Id&quot;:0,&quot;Name&quot;:&quot;Be The Bee&quot;,&quot;Group&quot;:&quot;NO-15-1&quot;}" data-id="0"></option>
+                                <option selected="" value="{&quot;Id&quot;:1,&quot;Name&quot;:&quot;Soul Goodman&quot;,&quot;Group&quot;:&quot;NO-16-1&quot;}" data-id="1"></option>
+                                <option selected="" value="{&quot;Id&quot;:2,&quot;Name&quot;:&quot;Mr. Freemen&quot;,&quot;Group&quot;:&quot;NO-17-1&quot;}" data-id="2"></option>
+                                <option selected="" value="{&quot;Id&quot;:3,&quot;Name&quot;:&quot;Isaac Sandaval&quot;,&quot;Group&quot;:&quot;NO-18-1&quot;}" data-id="3"></option>
+                                <option selected="" value="{&quot;Id&quot;:4,&quot;Name&quot;:&quot;William Taggart&quot;,&quot;Group&quot;:&quot;NO-19-1&quot;}" data-id="4"></option>
+                                <option selected="" value="{&quot;Id&quot;:5,&quot;Name&quot;:&quot;David Sharif&quot;,&quot;Group&quot;:&quot;NO-20-1&quot;}" data-id="5"></option>
+                                <option selected="" value="{&quot;Id&quot;:6,&quot;Name&quot;:&quot;Hugh Darroy&quot;,&quot;Group&quot;:&quot;NO-21-1&quot;}" data-id="6"></option>
+                                <option selected="" value="{&quot;Id&quot;:7,&quot;Name&quot;:&quot;Elisa Cassan&quot;,&quot;Group&quot;:&quot;NO-22-1&quot;}" data-id="7"></option>
+                                <option selected="" value="{&quot;Id&quot;:8,&quot;Name&quot;:&quot;El Capitano&quot;,&quot;Group&quot;:&quot;NO-23-1&quot;}" data-id="8"></option>
+                            </select>
+                            <!-- </ADDED> -->
+                            <div class="form-group required">
+                                <label class="control-label" for="output">Выходные данные</label>
+                                <input class="form-control" type="text" id="output" />
+                                <span class="help-block">Incorrect</span>
+                            </div>
+
+                            <!-- Types list with dropdown checkBoxes -->
+                            <div class="form-group">
+                                <label class="control-label" for="types" text="#{work.type}">Вид работы</label>
+                                <div></div>
+                                <select id="types" multiple="multiple"></select>
+                                <span class="help-block">Incorrect</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="employees">Сотрудник</label>
+                                <select class="form-control" multiple="multiple" id="employees">
+                                    <option> Dropdown</option>
+                                </select>
+                                <span class="help-block">Incorrect</span>
+                            </div>
+                            <div class="form-group required">
+                                <label class="control-label" for="category">Вид нагрузки</label>
+                                <select class="form-control" id="category" multiple="multiple"></select>
+                                <span class="help-block">Incorrect</span>
+                            </div>
+
+                            <div class="form-group required">
+                                <label class="control-label" for="date">Дата</label>
+                                <input type='text' class="form-control" id="date" />
+                                <span class="help-block">Incorrect</span>
+                            </div>
+                            <div class="form-group">
+                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <span class="btn btn-info btn-file">
+                                        <span class="fileupload-new">Select file</span>
+                                        <span class="fileupload-exists">Change</span>
+                                        <input type="file" id="file" name="file" />
+                                        <input type="hidden" id="doc" />
+                                    </span>
+                                    <span class="fileupload-preview"></span>
+                                    <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label class="control-label">Автор(ы)</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-download"></span>
+                                        </a>
+                                    </span>
+                                    <input class="form-control" type="text" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="saveButton"></label>
+                                <button type="submit" class="btn btn-primary" id="saveButton">
+                                    Save
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div><!-- /.col-lg-12 -->
+            </div><!-- /.row -->
+        </div><!-- page wrapper -->
+    </div><!-- /#wrapper -->
+    <!-- jQuery -->
+
+    <script type="text/javascript" src="/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- Autocomplete -->
+
+    <script type="text/javascript" src="/Scripts/Autocomplete.js"></script>
+
+    <!-- Date picker JS: -->
+    <script type="text/javascript" src="/js/datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="/js/datepicker/locales/bootstrap-datepicker.ru.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/js/datepicker/locales/bootstrap-datepicker.uk.min.js" charset="UTF-8"></script>
+
+    <!-- File upload button JS: -->
+    <script type="text/javascript" src="/js/fileupload.js"></script>
+
+    <!-- Multiselect dropdown with chekboxes JS: -->
+    <script type="text/javascript" src="/js/bootstrap-multiselect.js"></script>
+</body>
+</html>
