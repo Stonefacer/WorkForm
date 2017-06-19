@@ -28,10 +28,7 @@
                     <!-- <div class="col-sm-2"></div> -->
                     <div class="col-md-10 col-sm-10 col-xs-12">
                         <!-- Add work form -->
-                        <form action="/Home/SubmitForm" class="form" id="workForm" name="workForm" method="post" action="#" enctype="multipart/form-data"
-                              data-autocomlete-url="/Home/GetList"
-                              data-autocomlete-input-id="student"
-                              data-autocomlete-minimal-length="2">
+                        <form action="/Home/SubmitForm" class="form" id="workForm" name="workForm" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="Id" />
                             <div class="form-group required">
                                 <label class="control-label" for="title">Название*</label>
@@ -49,7 +46,13 @@
                                 <div class="row">
                                     <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5">
                                         <label class="control-label" for="student">Студент</label>
-                                        <input class="form-control" id="student" />
+                                        <input id="student" class="form-control"
+                                               data-autocomplete-url="/Home/GetList"
+                                               data-autocomplete-minimal-length="2"
+                                               data-autocomplete-add-button-id="add-student"
+                                               data-autocomplete-group-input-id="group"
+                                               data-autocomplete-select-id="selected-students"
+                                               data-autocomplete-labels-container-id="selected-students-visual"/>
                                     </div>
                                     <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5">
                                         <label class="control-label" for="group">Группа</label>
@@ -61,8 +64,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="selected-students-visual" class="form-group"></div>
-                            <select name="students" multiple id="selected-students">
+                            <div id="selected-students-visual" class="form-group selected-students-visual"></div>
+                            <select name="students" multiple id="selected-students" class="hidden">
                                 <option selected="" value="{&quot;Id&quot;:0,&quot;Name&quot;:&quot;Be The Bee&quot;,&quot;Group&quot;:&quot;NO-15-1&quot;}" data-id="0"></option>
                                 <option selected="" value="{&quot;Id&quot;:1,&quot;Name&quot;:&quot;Soul Goodman&quot;,&quot;Group&quot;:&quot;NO-16-1&quot;}" data-id="1"></option>
                                 <option selected="" value="{&quot;Id&quot;:2,&quot;Name&quot;:&quot;Mr. Freemen&quot;,&quot;Group&quot;:&quot;NO-17-1&quot;}" data-id="2"></option>
@@ -72,6 +75,76 @@
                                 <option selected="" value="{&quot;Id&quot;:6,&quot;Name&quot;:&quot;Hugh Darroy&quot;,&quot;Group&quot;:&quot;NO-21-1&quot;}" data-id="6"></option>
                                 <option selected="" value="{&quot;Id&quot;:7,&quot;Name&quot;:&quot;Elisa Cassan&quot;,&quot;Group&quot;:&quot;NO-22-1&quot;}" data-id="7"></option>
                                 <option selected="" value="{&quot;Id&quot;:8,&quot;Name&quot;:&quot;El Capitano&quot;,&quot;Group&quot;:&quot;NO-23-1&quot;}" data-id="8"></option>
+                            </select>
+
+                            <div class="form-group ui-widget">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5">
+                                        <label class="control-label" for="student">Студент</label>
+                                        <input id="student0" class="form-control"
+                                               data-autocomplete-url="/Home/GetList0"
+                                               data-autocomplete-minimal-length="1"
+                                               data-autocomplete-add-button-id="add-student0"
+                                               data-autocomplete-group-input-id="group0"
+                                               data-autocomplete-select-id="selected-students0"
+                                               data-autocomplete-labels-container-id="selected-students-visual0" />
+                                    </div>
+                                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5">
+                                        <label class="control-label" for="group">Группа</label>
+                                        <input class="form-control" id="group0" />
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                        <label class="control-label" for="add-student">&nbsp;</label>
+                                        <input class="form-control" type="button" id="add-student0" value="+" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="selected-students-visual0" class="form-group selected-students-visual"></div>
+                            <select name="students0" multiple id="selected-students0" class="hidden">
+                                <option selected="" value="{&quot;Id&quot;:0,&quot;Name&quot;:&quot;Be The Bee0&quot;,&quot;Group&quot;:&quot;NO-15-1&quot;}" data-id="0"></option>
+                                <option selected="" value="{&quot;Id&quot;:1,&quot;Name&quot;:&quot;Soul Goodman0&quot;,&quot;Group&quot;:&quot;NO-16-1&quot;}" data-id="1"></option>
+                                <option selected="" value="{&quot;Id&quot;:2,&quot;Name&quot;:&quot;Mr. Freemen0&quot;,&quot;Group&quot;:&quot;NO-17-1&quot;}" data-id="2"></option>
+                                <option selected="" value="{&quot;Id&quot;:3,&quot;Name&quot;:&quot;Isaac Sandaval0&quot;,&quot;Group&quot;:&quot;NO-18-1&quot;}" data-id="3"></option>
+                                <option selected="" value="{&quot;Id&quot;:4,&quot;Name&quot;:&quot;William Taggart0&quot;,&quot;Group&quot;:&quot;NO-19-1&quot;}" data-id="4"></option>
+                                <option selected="" value="{&quot;Id&quot;:5,&quot;Name&quot;:&quot;David Sharif0&quot;,&quot;Group&quot;:&quot;NO-20-1&quot;}" data-id="5"></option>
+                                <option selected="" value="{&quot;Id&quot;:6,&quot;Name&quot;:&quot;Hugh Darroy0&quot;,&quot;Group&quot;:&quot;NO-21-1&quot;}" data-id="6"></option>
+                                <option selected="" value="{&quot;Id&quot;:7,&quot;Name&quot;:&quot;Elisa Cassan0&quot;,&quot;Group&quot;:&quot;NO-22-1&quot;}" data-id="7"></option>
+                                <option selected="" value="{&quot;Id&quot;:8,&quot;Name&quot;:&quot;El Capitano0&quot;,&quot;Group&quot;:&quot;NO-23-1&quot;}" data-id="8"></option>
+                            </select>
+
+                            <div class="form-group ui-widget">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5">
+                                        <label class="control-label" for="student">Студент</label>
+                                        <input id="student1" class="form-control"
+                                               data-autocomplete-url="/Home/GetList1"
+                                               data-autocomplete-minimal-length="1"
+                                               data-autocomplete-add-button-id="add-student1"
+                                               data-autocomplete-group-input-id="group1"
+                                               data-autocomplete-select-id="selected-students1"
+                                               data-autocomplete-labels-container-id="selected-students-visual1" />
+                                    </div>
+                                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5">
+                                        <label class="control-label" for="group">Группа</label>
+                                        <input class="form-control" id="group1" />
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                        <label class="control-label" for="add-student">&nbsp;</label>
+                                        <input class="form-control" type="button" id="add-student1" value="+" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="selected-students-visual1" class="form-group selected-students-visual"></div>
+                            <select name="students1" multiple id="selected-students1" class="hidden">
+                                <option selected="" value="{&quot;Id&quot;:0,&quot;Name&quot;:&quot;Be The Bee1&quot;,&quot;Group&quot;:&quot;NO-15-1&quot;}" data-id="0"></option>
+                                <option selected="" value="{&quot;Id&quot;:1,&quot;Name&quot;:&quot;Soul Goodman1&quot;,&quot;Group&quot;:&quot;NO-16-1&quot;}" data-id="1"></option>
+                                <option selected="" value="{&quot;Id&quot;:2,&quot;Name&quot;:&quot;Mr. Freemen1&quot;,&quot;Group&quot;:&quot;NO-17-1&quot;}" data-id="2"></option>
+                                <option selected="" value="{&quot;Id&quot;:3,&quot;Name&quot;:&quot;Isaac Sandaval1&quot;,&quot;Group&quot;:&quot;NO-18-1&quot;}" data-id="3"></option>
+                                <option selected="" value="{&quot;Id&quot;:4,&quot;Name&quot;:&quot;William Taggart1&quot;,&quot;Group&quot;:&quot;NO-19-1&quot;}" data-id="4"></option>
+                                <option selected="" value="{&quot;Id&quot;:5,&quot;Name&quot;:&quot;David Sharif1&quot;,&quot;Group&quot;:&quot;NO-20-1&quot;}" data-id="5"></option>
+                                <option selected="" value="{&quot;Id&quot;:6,&quot;Name&quot;:&quot;Hugh Darroy1&quot;,&quot;Group&quot;:&quot;NO-21-1&quot;}" data-id="6"></option>
+                                <option selected="" value="{&quot;Id&quot;:7,&quot;Name&quot;:&quot;Elisa Cassan1&quot;,&quot;Group&quot;:&quot;NO-22-1&quot;}" data-id="7"></option>
+                                <option selected="" value="{&quot;Id&quot;:8,&quot;Name&quot;:&quot;El Capitano1&quot;,&quot;Group&quot;:&quot;NO-23-1&quot;}" data-id="8"></option>
                             </select>
                             <!-- </ADDED> -->
                             <div class="form-group required">

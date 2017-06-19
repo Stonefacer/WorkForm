@@ -1,9 +1,5 @@
 ﻿
-#selected-students{
-    display: none;
-}
-
-#selected-students-visual .label{
+.selected-students-visual .label{
     margin: 10px;
 }
 
